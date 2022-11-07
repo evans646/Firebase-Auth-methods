@@ -1,26 +1,29 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-
-.login-page-wrapper{
+.login-page-wrapper {
   justify-content: center;
   align-content: center;
-  margin-left:33%;
+  margin-left: 33%;
   margin-top: 6%;
 }
-
-
+.create-accountpage-wrapper{
+  justify-content: center;
+  align-content: center;
+  margin-left: 33%;
+  margin-top: 6%;
+}
 fieldset {
   margin: 2em 0;
   padding: 1em 2em;
   border: none;
   border-radius: 6px;
   background-color: #63b139;
-  margin-right:15%;
+  margin-right: 15%;
   margin-bottom: 2em;
   margin: 1em 2em;
 }
@@ -37,15 +40,15 @@ legend {
   /* top: 1em; */
 }
 
-label{
+label {
   display: block;
   margin-top: 1em;
   padding: 2px;
 }
 
 .checks label {
-      margin-top: 0;
-  }
+  margin-top: 0;
+}
 
 label:first-of-type {
   margin-top: 2em;
@@ -55,13 +58,15 @@ input {
   border: solid 1px #999;
   border-radius: 4px;
 }
-input[type="email"], input[type="url"], input[type="text"] {
+input[type="email"],
+input[type="url"],
+input[type="password"] {
   width: 35em;
 }
 
 .check {
-  margin-top: .5em;
-  font-size: .9em;
+  margin-top: 0.5em;
+  font-size: 0.9em;
 }
 
 #chkLabel {
@@ -79,33 +84,37 @@ input[type="submit"] {
   border-radius: 6px;
   background-color: rgb(42, 202, 95);
   color: #fff;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 1em;
   border: solid 1px #fff;
 }
 
 /* help-tip */
-.questWrap {position: relative;}
+.questWrap {
+  position: relative;
+}
 
 i.fas {
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900; 
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: 1.1em;
   font-style: normal;
   display: inline-block;
   color: rgb(236, 187, 7);
 }
-.helper {display: none;}
- 
+.helper {
+  display: none;
+}
+
 .helperText {
   position: absolute;
   background-color: #0e506f;
   border-radius: 4px;
   color: #fff;
-  padding: .5em 1.5em .5em .5em;
+  padding: 0.5em 1.5em 0.5em 0.5em;
   bottom: 30px;
   left: 111px;
-  font-size: .9em;
+  font-size: 0.9em;
   display: none;
 }
 /* to style triangle */
@@ -120,7 +129,9 @@ i.fas {
   border-color: rgb(13, 80, 110) transparent transparent transparent;
 }
 
-.helperText a { color: #fff; }
+.helperText a {
+  color: #fff;
+}
 
 /* close button */
 i.fas.fa-times-circle {
@@ -131,12 +142,15 @@ i.fas.fa-times-circle {
 }
 
 /* span tag slider */
-input[type="checkbox"] {  /* hide original */
+input[type="checkbox"] {
+  /* hide original */
   visibility: hidden;
   position: absolute;
 }
 
-label { cursor: pointer;}
+label {
+  cursor: pointer;
+}
 
 /* hide the "real" checkbox visually */
 .checkbox input {
@@ -155,7 +169,7 @@ label { cursor: pointer;}
   background-color: rgb(255, 255, 255);
   border: 0.0625em solid #39a5b5;
   border-radius: 0.75em;
-  box-shadow: inset 0 0.0625em 0 0.0625em rgba(0,0,0,0.075);
+  box-shadow: inset 0 0.0625em 0 0.0625em rgba(0, 0, 0, 0.075);
   display: inline-block;
   height: 1.5em;
   position: relative;
@@ -169,8 +183,8 @@ label { cursor: pointer;}
   border: 0.0625em solid;
   border-color: inherit;
   border-radius: 50%;
-  box-shadow: 0 0.0625em 0 0.0625em rgba(0,0,0,0.075);
-  content: '';
+  box-shadow: 0 0.0625em 0 0.0625em rgba(0, 0, 0, 0.075);
+  content: "";
   display: block;
   height: 1.625em;
   left: 25%;
@@ -197,7 +211,7 @@ input:checked + .checkbox-value::before {
   font-size: 1.3em;
   font-style: normal;
   color: #ecbb07;
-  padding-right: .25em;
+  padding-right: 0.25em;
 }
 
 [aria-checked="true"]::before {
@@ -208,50 +222,90 @@ input:checked + .checkbox-value::before {
   content: "\f14a";
 }
 
-#signIn{
+#signIn {
   cursor: pointer;
   width: 25%;
   padding: 10px;
   font-size: 1.2em;
 }
 
-hr{
+hr {
   margin: 8px;
 }
-.phoneBtn{
-    display: block;
-    border: 0px;
-    border-radius: 3px;
-    box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px;
-    color: black;
-    cursor: pointer;
-    font-size: 19px;
-    text-align: left;
-    margin: 5px;
-    width: calc(100% - 10px);
-    overflow: hidden;
-    padding: 10px;
-    user-select: none;
-    height: 50px;
-    background: white;
+
+.social-continue{
+  padding: 5px;
+  font-size: 1.1em;
 }
-.phoneBtn svg{
+.auth-btns button {
+  height: 45px !important;
+}
+.phoneBtn {
+  display: block;
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px;
+  color: black;
+  cursor: pointer;
+  font-size: 19px;
+  text-align: left;
+  margin: 5px;
+  width: calc(100% - 10px);
+  overflow: hidden;
+  padding: 10px;
+  user-select: none;
+  height: 50px;
+  background: white;
+}
+.phoneBtn svg {
   font-size: 19px;
   float: left;
   height: 26px;
   width: 26px;
   padding-right: 5px;
 }
-@media screen and (min-width: 430px) {
-  body{
-    background-color:#0e506f
+
+.login-page-wrapper p:nth-of-type(2){
+   font-size: 1.1em;
+   padding: 5px;
+}
+.login-page-wrapper a{
+  color: red;
+}
+/* small screens */
+@media (max-width: 740px) {
+  body {
+    background-color:red  !important
+  }
+  .login-page-wrapper{
+    width: 430px;
+    height: auto;
+    margin: 5% auto;
+    padding: 8px;
+    border-radius: 1.5em;
+  }
+  input[type="email"],input[type="password"]{
+      margin-right: 10%;
+      width: 80%;
   }
   legend {
-      font-size: 2.1em;
-      text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width: 430px) {
+  body {
+    background-color: #0e506f;
+  }
+  legend {
+    font-size: 2.1em;
+    text-align: center;
   }
   fieldset {
-      width: 40%;
-      min-width: 320px;
+    width: 40%;
+    min-width: 320px;
   }
 }

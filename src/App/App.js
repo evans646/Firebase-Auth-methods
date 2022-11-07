@@ -1,17 +1,28 @@
-import {DashboardPage} from "../Pages/DashboardPage";
-import useUser from "../Hooks/useUser";
-//So i will require the use Userhook here to determin if a user is logged in or not 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-import {LoginPage} from "../Pages/LoginPage";
+import { DashboardPage } from "../Pages/DashboardPage";
+
+import {PrivateRoute} from "../Hooks/PrivateRoutes";
+
+import { LoginPage } from "../Pages/LoginPage";
+import {CreateAccountPage} from "../Pages/CreateAccountPage";
 
 function App() {
-  const {user} = useUser();
+ 
+
+
   return (
-    <div className="App">
-  {
-    user ? <DashboardPage/> : <LoginPage/>
-  }
-    </div>
+    <BrowserRouter>
+    <Routes>
+     <Route path="/" element={<PrivateRoute><DashboardPage/></PrivateRoute>}/>
+      <Route path="/login" element={<LoginPage/>}/>
+      <Route path="/create-account" element={<CreateAccountPage/>}/>
+    </Routes>
+  </BrowserRouter>
   );
 }
 

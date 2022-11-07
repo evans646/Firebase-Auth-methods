@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
+import { getAuth } from "firebase/auth";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -14,19 +15,20 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyASsjpJUVWMCWBRR3TZQGfzlU1CuIqnW7s",
-  authDomain: "fir-auth-methods-dd9c9.firebaseapp.com",
-  projectId: "fir-auth-methods-dd9c9",
-  storageBucket: "fir-auth-methods-dd9c9.appspot.com",
-  messagingSenderId: "482277165063",
-  appId: "1:482277165063:web:5eef431ab283638e4942a2",
-  measurementId: "G-YBRMM377JX"
+  apiKey: "AIzaSyAOUwtypJq0k0gbEU1i_pNtngptz3BBFo0",
+  authDomain: "fir-auth-methods-4a97b.firebaseapp.com",
+  projectId: "fir-auth-methods-4a97b",
+  storageBucket: "fir-auth-methods-4a97b.appspot.com",
+  messagingSenderId: "1044499264230",
+  appId: "1:1044499264230:web:320e68bc035dd751f40127",
+  measurementId: "G-HG21PP1RND"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-console.log(analytics);
+export const auth = getAuth();
+getAnalytics(app);
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
