@@ -30,8 +30,9 @@ fieldset {
 
 legend {
   font-size: 3em;
+  font-weight: 600;
   padding: 0;
-  color: rgb(236, 187, 6);
+  color: rgb(236, 136, 6);
   text-shadow: 1px 1px 3px #333;
   position: relative;
   text-align: center;
@@ -75,33 +76,59 @@ input[type="password"] {
   align-items: center;
 }
 
-input[type="submit"] {
-  display: block;
-  padding: 1em 2em;
-  margin-top: 1.5em;
-  margin-left: 18%;
-  width: 60% !important;
-  border-radius: 6px;
-  background-color: rgb(42, 202, 95);
+/* //submit btn  */
+.btn-hover {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  border: solid 1px #fff;
+  cursor: pointer;
+  margin-left: 20%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  height: 45px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
 }
 
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+.btn-hover.color {
+  background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #dda54e);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+ a{
+  color: #e43603;
+ }
 /* help-tip */
 .questWrap {
   position: relative;
 }
 
-i.fas {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 1.1em;
-  font-style: normal;
-  display: inline-block;
-  color: rgb(236, 187, 7);
-}
+
 .helper {
   display: none;
 }
@@ -298,7 +325,7 @@ hr {
 
 @media screen and (min-width: 430px) {
   body {
-    background-color: #0e506f;
+    background-color: #ecf2f5;
   }
   legend {
     font-size: 2.1em;

@@ -1,7 +1,6 @@
-import {useState} from 'react';
-import { useNavigate } from "react-router-dom";
-
-import {getAuth,signInWithEmailAndPassword} from 'firebase/auth';
+import {useState,useEffect} from 'react';
+import { useNavigate,Link} from "react-router-dom";
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 
 
 export const CreateAccountPage= () => {
@@ -10,45 +9,53 @@ export const CreateAccountPage= () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-  const OnSignupClick = async()=>{
+  useEffect(() => {
+    if (showErrorMessage) {
+      setTimeout(() => {
+        setShowErrorMessage(false);
+      }, 3000);
+    }
+  }, [showErrorMessage]);
+
+  const OnCreateAccountClick = async()=>{
     try{
-        await signInWithEmailAndPassword(getAuth(),email,password);
+        if (password !==confirmPassword){
+            setErrorMessage('Password and confirm password do not match!')
+            return;
+        }
+        await createUserWithEmailAndPassword(getAuth(),email,password);
         navigate('/')
     }catch(e){
-        setError(e.message)
+        setErrorMessage(e.message);
+        setShowErrorMessage(true);
     }
 };
   return (
      <section className="create-accountpage-wrapper">         
-    <form action="#" method="post">
-    <legend>Sign Up</legend>
+    <div>
+      {showErrorMessage && <div className="fail">{errorMessage}</div>}
+   </div>
+    <legend>Create Account Here</legend>
       <fieldset>
-        <div class="questWrap">
-          <label for="username">Your username</label>
-          <input type="email" id="username" required />
-          <i class="fas fa-info-circle tooltip"></i>
-          <div role="tooltip" id="username-tip" class="helperText">* Your username is your email address.
-          <i class="fas fa-times-circle closeBtn"></i>
-          </div>
-          
+        <div className="questWrap">
+          <label Htmlfor="email">Your email</label>
+          <input type="email" id="email" placeholder="example@mail.com" value={email} onChange={e=>setEmail(e.target.value)} required />  
         </div>
-        <div class="questWrap">
-          <label for="password">Your password</label>
-          <input type="password" id="password" required />
-          <label for="confirm-password">Confirm password</label>
-          <input type="password" id="confirm-password" required />
+        <div className="questWrap">
+          <label Htmlfor="password">Your password</label>
+          <input type="password" id="password"  placeholder="*****" value={password} onChange={e=>setPassword(e.target.value)} required />
+          <label Htmlfor="confirm-password">Confirm password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required />
         </div>
-        <label>
-            <input type="checkbox"/>
-            <span class="checkbox-value" aria-hidden="true"></span>
-             Set phasers to stun
-        </label>
-        <input type="submit" id="signIn" value="Create Account"/>
+        <button className="btn-hover color" onClick={OnCreateAccountClick}disabled={confirmPassword !==password && !password &&confirmPassword}>Create Account</button>
+         <hr/>
+         <p>
+            Have an account ? Log  In <Link to="/login">here</Link>
+          </p>
       </fieldset>
-    </form>
-
      </section>
   );
 };

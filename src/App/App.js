@@ -18,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-     <Route path="/" element={<PrivateRoute><DashboardPage/></PrivateRoute>}/>
+     <Route path="/" element={<DashboardPage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/create-account" element={<CreateAccountPage/>}/>
     </Routes>

@@ -31,10 +31,10 @@ export const Dashboard = () => {
       <h1>Dashboard</h1>
       <input type="submit" id="signIn" value="Sign out2"  onClick={handleSignOut}/>
        <p>
-        {email}
-        {displayName}
-        {photoURL}
-        {emailVerified}
+        {email}||
+        {displayName}||
+        {photoURL}||
+        {emailVerified}||
         {uid}
        </p>
     </>
