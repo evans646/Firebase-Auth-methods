@@ -6,17 +6,14 @@ import {
 
 import { DashboardPage } from "../Pages/DashboardPage";
 
-import {PrivateRoute} from "../Hooks/PrivateRoutes";
 
 import { LoginPage } from "../Pages/LoginPage";
 import {CreateAccountPage} from "../Pages/CreateAccountPage";
 
 function App() {
- 
-
 
   return (
-    <BrowserRouter>
+     <BrowserRouter>
     <Routes>
      <Route path="/" element={<DashboardPage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
@@ -24,6 +21,6 @@ function App() {
     </Routes>
   </BrowserRouter>
   );
-}
+};
 
 export default App;

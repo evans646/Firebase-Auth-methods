@@ -1,4 +1,4 @@
-import useUser from "../Hooks/useUser"
+import useUser from "../Hooks/useUser";
 
 import { Dashboard} from "../interface/dashBoard";
 import { LoginPage } from "../Pages/LoginPage";

@@ -1,6 +1,6 @@
-import {useState,useEffect} from 'react';
+import {useState,useEffect} from "react";
 import { useNavigate,Link} from "react-router-dom";
-import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
 
 export const CreateAccountPage= () => {
@@ -16,7 +16,7 @@ export const CreateAccountPage= () => {
     if (showErrorMessage) {
       setTimeout(() => {
         setShowErrorMessage(false);
-      }, 3000);
+      },3000);
     }
   }, [showErrorMessage]);
 
@@ -38,7 +38,7 @@ export const CreateAccountPage= () => {
     <div>
       {showErrorMessage && <div className="fail">{errorMessage}</div>}
    </div>
-    <legend>Create Account Here</legend>
+    <legend>Create Account Here</legend>    
       <fieldset>
         <div className="questWrap">
           <label Htmlfor="email">Your email</label>
