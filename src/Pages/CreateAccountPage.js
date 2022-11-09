@@ -23,7 +23,7 @@ export const CreateAccountPage= () => {
   const OnCreateAccountClick = async()=>{
     try{
         if (password !==confirmPassword){
-            setErrorMessage('Password and confirm password do not match!')
+            setErrorMessage('Password and confirm password do not match')
             return;
         }
         await createUserWithEmailAndPassword(getAuth(),email,password);
@@ -35,19 +35,19 @@ export const CreateAccountPage= () => {
 };
   return (
      <section className="create-accountpage-wrapper">         
-    <div>
+    <div  className="alert-wrapper">
       {showErrorMessage && <div className="fail">{errorMessage}</div>}
-   </div>
+    </div>
     <legend>Create Account Here</legend>    
       <fieldset>
         <div className="questWrap">
-          <label Htmlfor="email">Your email</label>
+          <label htmlfor="email">Your email</label>
           <input type="email" id="email" placeholder="example@mail.com" value={email} onChange={e=>setEmail(e.target.value)} required />  
         </div>
         <div className="questWrap">
-          <label Htmlfor="password">Your password</label>
+          <label htmlfor="password">Your password</label>
           <input type="password" id="password"  placeholder="*****" value={password} onChange={e=>setPassword(e.target.value)} required />
-          <label Htmlfor="confirm-password">Confirm password</label>
+          <label htmlfor="confirm-password">Confirm password</label>
           <input type="password" id="confirm-password" placeholder="Confirm password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required />
         </div>
         <button className="btn-hover color" onClick={OnCreateAccountClick}disabled={confirmPassword !==password && !password &&confirmPassword}>Create Account</button>

@@ -2,7 +2,6 @@ import {useState,useEffect} from 'react';
 import { useNavigate,Link } from "react-router-dom";
 
 import { GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons";
-import {PhoneLoginButton} from "../interface/CustomPhoneBtn";
 
 import {
   getAuth,
@@ -11,7 +10,6 @@ import {
   GoogleAuthProvider ,
   GithubAuthProvider,
   signInWithPopup,
-  signInWithPhoneNumber,
 } from 'firebase/auth';
 
 
@@ -27,15 +25,16 @@ provider.addScope(scopes);
 
 
 export const LoginPage = () => {
+  
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phoneInput,setPhoneNumber] = useState(null)
   const [errorMessage, setErrorMessage] = useState('');
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-  const [user,setUser] = useState(null);
+  const [,setUser] = useState(null);
+
   //custom hook to diplay error message temporaly
   useEffect(() => {
     if (showErrorMessage) {
@@ -54,7 +53,7 @@ export const LoginPage = () => {
       setShowErrorMessage(true);
     }
 };
-
+//google
 const OnGoogleLogInClick = async()=>{
   try{
     await signInWithRedirect(getAuth(),provider);
@@ -63,6 +62,7 @@ const OnGoogleLogInClick = async()=>{
   setErrorMessage(e.message);
   setShowErrorMessage(true);
 }};
+//github
 const OnGithubLogInClick = async()=>{
 await  signInWithPopup(getAuth(), Githubprovider)
 .then((result) => {
@@ -81,28 +81,11 @@ await  signInWithPopup(getAuth(), Githubprovider)
 });
 };
 
-// const phoneNumber = getPhoneNumberFromUserInput();
-const appVerifier = window.recaptchaVerifier;
-
-
-const OnPhoneLogInClick = async()=>{
-  signInWithPhoneNumber(getAuth(),appVerifier)
-  .then((confirmationResult) => {
-    // SMS sent. Prompt user to type the code from the message, then sign the
-    // user in with confirmationResult.confirm(code).
-    window.confirmationResult = confirmationResult;
-  }).catch((error) => {
-    // Error; SMS not sent
-    setErrorMessage(error.message);
-    setShowErrorMessage(true);
-  });
-};
-
   return (
     <div className="login-page-wrapper">
-        <div>
-      {showErrorMessage && <div className="fail">{errorMessage}</div>}
-       </div>
+      <div className="alert-wrapper">
+          {showErrorMessage && <div className="fail">{errorMessage}</div>}
+      </div>
         <legend>Log In Here</legend>
       <span>
         <fieldset>
@@ -114,7 +97,7 @@ const OnPhoneLogInClick = async()=>{
             <label htmlFor="password">Your password</label>
             <input  type="password" id="password"  placeholder="*****" required   value={password} onChange={e=>setPassword(e.target.value)}/>
           </div>
-          <button class="btn-hover color"  onClick={OnlogInClick} disabled={!password&&email}>Log In With Email</button>
+          <button className="btn-hover color"  onClick={OnlogInClick} disabled={!password||email}>Log In With Email</button>
           <hr/>
           <p className="social-continue">
             You can also
@@ -122,7 +105,6 @@ const OnPhoneLogInClick = async()=>{
           <span className="auth-btns">
           <GoogleLoginButton onClick={OnGoogleLogInClick}/>
           <GithubLoginButton  onClick={OnGithubLogInClick}/>
-          <PhoneLoginButton onClick={OnPhoneLogInClick}/>
           </span>
           <p>
             Dont have an account ? Sign up <Link to="/create-account">here</Link>
