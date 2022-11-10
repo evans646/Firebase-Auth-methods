@@ -8,7 +8,7 @@ export const DashboardPage =()=>{
     return(
         <div>
         {
-            user ? <Dashboard/> : <LoginPage/>
+           user ? <Dashboard/> : <LoginPage/>
         }
         </div>
     )

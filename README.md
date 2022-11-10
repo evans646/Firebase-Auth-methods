@@ -11,3 +11,6 @@
     <li>Nginx</li>
     <li>Docker</li>
 </ul>
+<hr>
+<h4>Dashboard</h4>
+<img src="/images/dashboard.png" alt="" width="700">
